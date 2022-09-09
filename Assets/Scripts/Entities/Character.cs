@@ -38,12 +38,12 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(_moveForward)) _cmdMoveForward.Execute();//_movementController.Travel(Vector3.forward); ahora el Travel se usa en cmdMovement
-        if (Input.GetKey(_moveBack))    _cmdMoveBack.Execute();//_movementController.Travel(-Vector3.forward);
-        if (Input.GetKey(_moveRight))   _cmdRotateRight.Execute();//_movementController.Rotate(Vector3.up);
-        if (Input.GetKey(_moveLeft))    _cmdRotateLeft.Execute();//_movementController.Rotate(-Vector3.up);
+        if (Input.GetKey(_moveForward)) EventQueueManager.instance.AddCommand(_cmdMoveForward); //_cmdMoveForward.Execute();//_movementController.Travel(Vector3.forward); ahora el Travel se usa en cmdMovement
+        if (Input.GetKey(_moveBack))    EventQueueManager.instance.AddCommand(_cmdMoveBack);// _cmdMoveBack.Execute();//_movementController.Travel(-Vector3.forward);
+        if (Input.GetKey(_moveRight))   EventQueueManager.instance.AddCommand(_cmdRotateRight); //_cmdRotateRight.Execute();//_movementController.Rotate(Vector3.up);
+        if (Input.GetKey(_moveLeft))    EventQueueManager.instance.AddCommand(_cmdRotateLeft); //_cmdRotateLeft.Execute();//_movementController.Rotate(-Vector3.up);
 
-        if (Input.GetKeyDown(_attack)) _cmdAttack.Execute();// _gun.Attack();
+        if (Input.GetKeyDown(_attack)) EventQueueManager.instance.AddCommand(_cmdAttack);//_cmdAttack.Execute();// _gun.Attack();
         if (Input.GetKeyDown(_reload)) _gun.Reload();
     }
 }
