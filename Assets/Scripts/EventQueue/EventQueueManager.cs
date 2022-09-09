@@ -10,6 +10,8 @@ public class EventQueueManager : MonoBehaviour
     public Queue<ICommand> Events => _events;
     private Queue<ICommand> _events = new Queue<ICommand>(); 
 
+    [SerializeField] private bool _isPlayerFrozen;
+
     private void Awake() 
     { 
         if (instance != null) Destroy(this); 
@@ -20,7 +22,12 @@ public class EventQueueManager : MonoBehaviour
     { 
         while (_events.Count > 0)
         {
-            _events.Dequeue().Execute(); 
+            var command = _events.Dequeue();
+            if(_isPlayerFrozen && command is CmdMovement) { 
+                continue; // si esta congelado no se deberia poder mover, me salteo esos eventos
+            }
+            command.Execute();
+
         } 
          
     }
