@@ -7,8 +7,8 @@ public class EventQueueManager : MonoBehaviour
     //Singleton
     static public EventQueueManager instance; 
 
-    public List<ICommand> Events => _events;
-    private List<ICommand> _events = new List<ICommand>(); 
+    public Queue<ICommand> Events => _events;
+    private Queue<ICommand> _events = new Queue<ICommand>(); 
 
     private void Awake() 
     { 
@@ -18,12 +18,12 @@ public class EventQueueManager : MonoBehaviour
 
     private void Update() 
     { 
-        foreach (ICommand command in _events)
+        while (_events.Count > 0)
         {
-            command.Execute(); 
-        }
-        _events.Clear(); // lo va limpiando en cada frame
+            _events.Dequeue().Execute(); 
+        } 
+         
     }
 
-    public void AddCommand(ICommand command) => _events.Add(command);
+    public void AddCommand(ICommand command) => _events.Enqueue(command);
 }
