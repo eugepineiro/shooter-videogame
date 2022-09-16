@@ -243,7 +243,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1254826, y: 1}
+    m_SensorSize: {x: 2.1073558, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 652463346}
   - component: {fileID: 652463345}
   - component: {fileID: 652463344}
+  - component: {fileID: 652463348}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -799,6 +800,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652463348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652463343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8435ad5c068a899fb54b48d62f94eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actorStats: {fileID: 11400000, guid: 71dce49b4ea375790b0d33b9f68e40e9, type: 2}
+  _currentLife: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,6 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d568b0c780dadc40a4b07d6b127fdf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPlayerFrozen: 0
 --- !u!4 &1015830905
 Transform:
   m_ObjectHideFlags: 0
@@ -1648,10 +1664,10 @@ GameObject:
   - component: {fileID: 1526323026}
   - component: {fileID: 1526323025}
   - component: {fileID: 1526323024}
-  - component: {fileID: 1526323027}
-  - component: {fileID: 1526323028}
   - component: {fileID: 1526323029}
+  - component: {fileID: 1526323027}
   - component: {fileID: 1526323030}
+  - component: {fileID: 1526323028}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1750,6 +1766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4268a06954fb8a3f7b3c926176b05433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actorStats: {fileID: 0}
   _gun: {fileID: 640849581}
   _moveForward: 119
   _moveBack: 115
@@ -1769,8 +1786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8221298d37b2b30ba5cc951b88c44b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  _rotationSpeed: 10
+  _actorStats: {fileID: 11400000, guid: e7cef120ec4547609bee88ba92f9558b, type: 2}
 --- !u!54 &1526323029
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1799,7 +1815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8435ad5c068a899fb54b48d62f94eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLife: 100
+  _actorStats: {fileID: 11400000, guid: e7cef120ec4547609bee88ba92f9558b, type: 2}
   _currentLife: 0
 --- !u!4 &1576945557 stripped
 Transform:

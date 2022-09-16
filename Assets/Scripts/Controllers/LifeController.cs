@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequiereComponent(typeof(Actor))]
 public class LifeController : MonoBehaviour, IDamageable
 {   
-    public float MaxLife => _maxLife;
-    [SerializeField] private float _maxLife = 100; 
+
+    [SerializeField] private ActorStats _actorStats;
+
+    public float MaxLife => /*GetComponent<Actor>().ActorStats*/_actorStats.MaxLife;
+    //[SerializeField] private float _maxLife = 100; 
     [SerializeField] private float _currentLife; 
 
     private void Start(){
-        _currentLife = _maxLife;
+        _currentLife = MaxLife;
     }
      
     public void TakeDamage(float damage)

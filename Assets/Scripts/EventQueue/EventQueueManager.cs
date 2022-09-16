@@ -29,6 +29,7 @@ public class EventQueueManager : MonoBehaviour
             command.Execute();
 
         } 
+        _events.Clear();
          
     }
 
